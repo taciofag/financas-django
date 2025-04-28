@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">Lista de Despesas</h1>
+
+    <a href="{% url 'adicionar_despesa' %}" class="btn btn-primary mb-3">Nova Despesa</a>
+
+    <table class="table table-dark table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Categoria</th>
+                <th>Forma Pagamento</th>
+                <th>Pago?</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for despesa in despesas %}
+            <tr>
+                <td>{{ despesa.data }}</td>
+                <td>R$ {{ despesa.valor }}</td>
+                <td>{{ despesa.categoria.nome }}</td>
+                <td>{{ despesa.forma_pagamento.nome }}</td>
+                <td>{% if despesa.pago %}✅{% else %}❌{% endif %}</td>
+                <td>{{ despesa.descricao }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">Nenhuma despesa cadastrada ainda.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
