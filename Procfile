@@ -1,1 +1,1 @@
-web: gunicorn financas.wsgi:application
+web: gunicorn financas.financas.wsgi
