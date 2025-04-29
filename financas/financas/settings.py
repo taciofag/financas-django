@@ -122,10 +122,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/staticfiles/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # só se você tem uma pasta 'static'
-]
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # isso é obrigatório para o collectstatic
 
 
